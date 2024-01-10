@@ -26,6 +26,8 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 
 - **Data Validation:** Ensure data accuracy and completeness with required fields, date restrictions, and card number validation.
 
+- **Delivery Date Column:** An additional field is available to capture the Delivery Date of an order. While the feature is currently inactive, it can be activated by merging the changes from the "feature/add-delivery-date" branch into the main branch.
+
 ## Getting Started
 
 ### Prerequisites
