@@ -55,6 +55,26 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 - **Database:** The application employs an Azure SQL Database as its database system to store order-related data.
 
+### Docker containerization
+
+**1. Dockerfile Creation:**
+We utilized an official Python runtime as our parent image, specifically public.ecr.aws/docker/library/python:3.9.10-slim-buster. The working directory in the container was set to /app, and the application files were copied into the container's /app directory.
+**2. System Dependencies and ODBC Driver Installation:**
+System dependencies and the ODBC driver were installed to support the application. The installation process involved updating the package manager, installing necessary dependencies, and configuring the Microsoft ODBC driver.
+**3. Pip and Python Package Installation:**
+We upgraded pip and setuptools before installing Python packages specified in the requirements.txt file.
+**4. Port Exposure and Startup Command:**
+The Dockerfile exposed port 5000, which is the port the Flask application runs on. The startup command was set to launch the Flask application.
+
+
+**Usage Instructions:**
+Ensure Docker is installed on your system.
+Build the image using the provided Dockerfile.
+Run the container, exposing port 5000.
+Access the application on http://localhost:5000.
+
+
+
 ## Contributors 
 
 - [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
