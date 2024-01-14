@@ -1,6 +1,5 @@
 # TODO: Step 1 - Use an official Python runtime as a parent image.
-# You can use python:3.8-slim as the base image.
-FROM python:3.8-slim
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.9.10-slim-buster
 
 # TODO: Step 2 - Set the working directory in the container
 # Set it to /app, a commonly used directory for web applications.
@@ -24,6 +23,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install pip and setuptools
 RUN pip install --upgrade pip setuptools
+
 
 # TODO: Step 4 - Install Python packages specified in requirements.txt
 # Assuming your requirements.txt is in the same directory as your Dockerfile.
