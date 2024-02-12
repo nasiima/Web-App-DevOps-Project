@@ -76,6 +76,28 @@ Build the image using the provided Dockerfile. docker build -t nmohamed436/azure
 Run the container, exposing port 5000.
 Access the application on http://localhost:5000.
 
+**Deployment and Service Manifests:**
+
+Created Deployment and Service manifests in the application-manifest.yaml file.
+Deployment defines the desired state for the application pods, including image, ports, and replicas.
+Service defines a ClusterIP service for internal communication within the AKS cluster.
+**Deployment Strategy:**
+
+Chose a RollingUpdate deployment strategy for its gradual and controlled rollout.
+Configured a maximum surge and maximum unavailable percentage to manage the deployment process.
+This strategy ensures minimal downtime and allows for easy rollback if issues arise during deployment.
+**Testing and Validation:**
+
+Conducted tests to ensure pods are created, containers are running, and the service is accessible.
+Validated the application's functionality within the AKS cluster, focusing on critical features.
+Monitored pod logs and used kubectl commands to troubleshoot and verify the health of pods.
+
+**Distribution Plan:**
+
+For internal users, no port forwarding is needed; users can access the service within the AKS cluster.
+External users will require secure access; consider using Ingress controllers for HTTPS traffic.
+Utilize RBAC and Network Policies to control access and enhance security.
+Deploy the application in a namespace and control access through proper RBAC configurations.
 
 
 ## Contributors 
