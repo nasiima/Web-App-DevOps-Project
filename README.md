@@ -72,7 +72,7 @@ The Dockerfile exposed port 5000, which is the port the Flask application runs o
 **Docker Image Name:** nmohamed436/azure-end-to-end-devops
 Tags: Latest
 Ensure Docker is installed on your system.
-Build the image using the provided Dockerfile.
+Build the image using the provided Dockerfile. docker build -t nmohamed436/azure-end-to-end-devops:latest .
 Run the container, exposing port 5000.
 Access the application on http://localhost:5000.
 

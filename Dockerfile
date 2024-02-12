@@ -35,4 +35,4 @@ EXPOSE 5000
 # TODO: Step 6 - Define Startup Command
 # Specify the command that should be executed when the container launches.
 # This command should run the file that starts the Flask application.
-CMD ["python", "your_startup_script.py"]
+CMD ["python", "app.py"]
