@@ -7,13 +7,14 @@
 trigger:
 - main
 
-- script: |
-    source /home/vsts/work/1/s/venv/bin/activate
-  displayName: 'Activate Python Virtual Environment'
 
 pool:
   vmImage: ubuntu-latest
-
+  
+- script: |
+    source /home/vsts/work/1/s/venv/bin/activate
+  displayName: 'Activate Python Virtual Environment'
+  
 steps:
 - task: Docker@2
   inputs:
