@@ -18,6 +18,11 @@ steps:
     containerRegistry: 'serviceConnection'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+
+- script: |
+    ls -R /home/vsts/work/1/s/venv
+  displayName: 'List Virtual Environment Contents'
+
     
 - script: |
     source /home/vsts/work/1/s/venv/bin/activate
