@@ -15,6 +15,10 @@ steps:
     containerRegistry: 'serviceConnection'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    
+- script: |
+    source /home/vsts/work/1/s/venv/bin/activate
+  displayName: 'Activate Python Virtual Environment'
 
 - task: KubernetesManifest@1
   inputs:
