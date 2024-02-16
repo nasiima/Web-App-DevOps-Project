@@ -17,7 +17,12 @@ steps:
     Dockerfile: '**/Dockerfile'
     
 - script: |
+    python --version
+  displayName: 'Check Python Version'
+
+- script: |
     source /home/vsts/work/1/s/venv/bin/activate
+    # Activate the virtual environment before running any Python-related commands
   displayName: 'Activate Python Virtual Environment'
 
 - task: KubernetesManifest@1
@@ -28,4 +33,3 @@ steps:
     azureResourceGroup: 'my-resource-group'
     kubernetesCluster: 'my-resource-group'
     manifests: 'application-manifest.yaml'
-
