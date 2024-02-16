@@ -3,25 +3,36 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
 trigger:
-- secrets-feature
+- main
+
 
 pool:
   vmImage: ubuntu-latest
-
+  
+  
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'mayaaiuga/flask-app-sercrets'
+    containerRegistry: 'serviceConnection'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: 'latest'
+
+- script: |
+    ls -R /home/vsts/work/1/s/venv
+  displayName: 'List Virtual Environment Contents'
+
+    
+- script: |
+    source /home/vsts/work/1/s/venv/bin/activate
+  displayName: 'Activate Python Virtual Environment'
+
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'
     connectionType: 'azureResourceManager'
-    azureSubscriptionConnection: 'aks-service-connection'
-    azureResourceGroup: 'aks-rg'
-    kubernetesCluster: 'aks-demo'
-    manifests: 'deployment.yaml'
+    azureSubscriptionConnection: 'azureConnection'
+    azureResourceGroup: 'my-resource-group'
+    kubernetesCluster: 'my-resource-group'
+    manifests: 'application-manifest.yaml'
