@@ -14,7 +14,7 @@ steps:
   displayName: 'Build and Push Docker Image'
   inputs:
     containerRegistry: 'pipelineConnection2'
-    repository: 'nasiima/web-app-devops-project'
+    repository: 'nmohamed436/azure-end-to-end-devops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
